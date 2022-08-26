@@ -1,4 +1,5 @@
 $('.btnAddMore').click(function () {
+    $('.overlay').addClass('show_overlay');
     $('.field_sidebar').addClass('show_sidebar');
     $('.viewDetail').removeClass('show_detail')
     setTimeout(() => {

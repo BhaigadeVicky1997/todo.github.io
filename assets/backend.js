@@ -103,6 +103,9 @@ function showReminder(reminder_name, endDate) {
     let remaining_hours = (23 - date_2.getHours());
     let remaining_minutes = (59 - date_2.getMinutes());
     let remaining_seconds = (59 - date_2.getSeconds());
+    if (remaining_days < 0){
+        remaining_days = 0
+    }
     if (remaining_seconds<10){
         remaining_seconds = "0" + remaining_seconds 
     }
@@ -131,6 +134,7 @@ function showReminder(reminder_name, endDate) {
 }
 
 function viewRem(index) {
+    $('.overlay').addClass('show_overlay')
     $('.field_sidebar').removeClass('show_sidebar update_sidebar')
     let data = JSON.parse(localStorage.getItem('reminders'))
     let current_data = data[index]
@@ -160,6 +164,7 @@ $('#detailClose').click(function () {
 // Edit Reminder
 
 function editRem(index) {
+    $('.overlay').addClass('show_overlay')
     $('.field_sidebar').addClass('show_sidebar update_sidebar')
     $('.viewDetail').removeClass('show_detail')
     setTimeout(() => {
@@ -240,3 +245,21 @@ function updateReminder() {
 
 
 }
+
+
+// overlay
+$('.overlay').click(function(){
+    $(this).removeClass('show_overlay')
+
+    if($('.viewDetail').hasClass('show_detail')){
+        $('.viewDetail').removeClass('show_detail');
+        setTimeout(() => {
+            clearInterval(rem_interval)
+            $('#detailBox').children().remove()
+        }, 400)
+    }
+
+    if($('.field_sidebar').hasClass('show_sidebar')){
+        $('.field_sidebar').removeClass('show_sidebar');
+    }
+})
