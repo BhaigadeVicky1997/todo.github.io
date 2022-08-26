@@ -8,6 +8,7 @@ $('.btnAddMore').click(function () {
     }, 400)
 })
 $('#sidebarClose').click(function () {
+    $('.overlay').removeClass('show_overlay')
     $('.field_sidebar').removeClass('show_sidebar')
 })
 

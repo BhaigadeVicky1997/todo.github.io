@@ -153,6 +153,7 @@ function viewRem(index) {
 }
 
 $('#detailClose').click(function () {
+    $('.overlay').removeClass('show_overlay')
     $('.viewDetail').removeClass('show_detail');
 
     setTimeout(() => {
