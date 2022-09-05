@@ -85,6 +85,12 @@ header .navbar-brand {
   max-width: 100%;
   z-index: 2;
 }
+@media (max-width: 567px) {
+  .field_sidebar {
+    top: 4.9rem;
+    height: calc(100vh - 4.9rem);
+  }
+}
 .field_sidebar label {
   font-weight: 500;
   margin-bottom: 1rem;
