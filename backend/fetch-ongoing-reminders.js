@@ -65,7 +65,7 @@ if (localStorage.length != 0) {
             let remainingDays = Math.ceil(timediffernce / (1000 * 3600 * 24));
             console.log(`Remaining days in expire :- ${remainingDays}`)
 
-            if (remainingDays > 0){
+            if (remainingDays >= 0){
                 if (remainingDays <= 5){
                     $("#jumboMessage").remove();
                     $('#expiredBtn').show();
