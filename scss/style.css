@@ -204,7 +204,7 @@ header .navbar-brand {
 
 /* overlay css */
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 0;
