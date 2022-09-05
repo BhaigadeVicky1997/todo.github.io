@@ -1,0 +1,87 @@
+.datepicker {
+    &.datepicker-dropdown {
+        width: 200px;
+    }
+
+    * {
+        font-size: 1.4rem;
+    }
+
+    .table-condensed {
+        width: 100%;
+
+        th.prev,
+        th.next {
+            text-align: center;
+            border-radius: 50%;
+            color: #fff;
+            position: relative;
+        }
+
+        th.prev:after,
+        th.next:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2rem;
+            height: 2rem;
+            background: $primary-color;
+            content: "";
+            transform: translateX(-50%) translateY(calc(-50% + 0.1rem));
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        th.prev {
+            left: 0.8rem;
+        }
+
+
+        th.next {
+            left: -0.8rem;
+        }
+
+
+        th.dow {
+            background: $primary-color;
+            color: #fff;
+        }
+    }
+
+    .datepicker-switch {
+        text-align: center;
+        padding: 0.5rem 0 0.8rem;
+    }
+
+
+
+    .day {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .disabled {
+        opacity: 0.2;
+        cursor: no-drop;
+    }
+
+
+    .today,
+    .active.day {
+        background: $primary-color;
+        border-radius: 0.4rem;
+        color: #fff;
+        padding: 0.4rem;
+    }
+
+    .today:hover {
+        background-color: $primary-color  !important;
+        opacity: 0.7;
+    }
+
+
+    .day:hover {
+        background: #efefef;
+    }
+
+}

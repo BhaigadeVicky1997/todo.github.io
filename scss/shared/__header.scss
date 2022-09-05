@@ -1,0 +1,45 @@
+header {
+    background-color: $primary-color;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    @media (max-width: 575px) {
+        .text-center {
+            text-align: left !important;
+            margin-top: -3.6rem;
+        }
+
+        .btnAddMore {
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+        }
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+        @media (max-width: 575px){
+            position: relative;
+            left: 50%;
+            transform: translateX(calc(-50% + 10px));
+        }
+
+        @media (max-width: 420px){
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 420px){
+        .time{
+            font-size: 2rem !important;
+            position: relative;
+            top: 0.4rem;
+        }
+        .btnAddMore{
+            bottom: 0;
+        }
+    }
+}

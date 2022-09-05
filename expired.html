@@ -29,14 +29,11 @@
     <header>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="col-lg-6 col-md-6 col-sm-6 w-50">
                     <a class="navbar-brand text-white m-0" href="javascript: void(0)">Personal Reminders</a>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 text-center">
-                    <span class="time text-white" style="font-size: 2.7rem;" id="time"></span>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 text-right">
-                    <button class="btn btn-outline-light text-white btnAddMore"><i class="fa fa-plus"></i></button>
+                <div class="col-lg-6 col-md-6 col-sm-6 w-50 text-right">
+                    <a class="btn btn-outline-light text-white" href="index.html"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
         </div>
@@ -45,14 +42,7 @@
     <!-- reminders -->
     <section class="reminders">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-8 col-md-8 col-sm-7">
-                    <h1 class="mb-5">Reminder Lists</h1>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-5 text-right">
-                    <a href="expired.html" class="btn btn-danger" id="expiredBtn">View Expired</a>
-                </div>
-            </div>
+            <h1 class="mb-5">Expired Reminder Lists</h1>
             <div class="row" id="remidersList"></div>
         </div>
     </section>
@@ -78,6 +68,10 @@
                 <input type="text" class="form-control datepicker" id="endDate" />
                 <input type="hidden" id="hiddenendDate" />
             </div>
+            <!-- <div class="form-group mb-4">
+                <label for="" class="control-label">Remind Before Completing Days</label>
+                <input type="text" class="form-control" id="remCompDays" required />
+            </div> -->
 
             <div class="form_footer">
                 <button class="btn btn-primary btn_submit" type="button">Submit</button>
@@ -108,14 +102,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
-    <script src="assets/custom.js"></script>
-    <script src="backend/fetch-ongoing-reminders.js"></script>
-    <script src="backend/delete-ongoing-reminders.js"></script>
-    <script src="backend/create-reminders.js"></script>
-    <script src="backend/view-reminder.js"></script>
-    <script src="backend/edit-reminder.js"></script>
-    <script src="assets/index-overlay.js"></script>
-    <script src="assets/index.js"></script>
+    <script src="backend/expired.js"></script>
+    <script src="assets/create.js"></script>
 </body>
 
 </html>

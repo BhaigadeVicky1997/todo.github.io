@@ -1,44 +1,25 @@
-$('.btnAddMore').click(function () {
-    $('.overlay').addClass('show_overlay');
-    $('.field_sidebar').addClass('show_sidebar');
-    $('.viewDetail').removeClass('show_detail')
-    setTimeout(() => {
-        clearInterval(rem_interval)
-        $('#detailBox').children().remove()
-    }, 400)
-})
-$('#sidebarClose').click(function () {
-    $('.overlay').removeClass('show_overlay')
-    $('.field_sidebar').removeClass('show_sidebar')
-})
 
-$('.datepicker').datepicker(
-    {
-        format: "mm/dd/yyyy",
-        startDate: new Date(),
-        todayHighlight: true
+function clockFunction(){
+    clockTime = new Date()
+    currenthour = clockTime.getHours()
+    timeformat = ""
+    if (currenthour > 12){
+        currenthour = currenthour - 12
+        timeformat = "PM"
     }
-);
-
-$('.datepicker').change(function () {
-    $('.datepicker.datepicker-dropdown').remove()
-})
-
-$('.currentDate').click(function () {
-    // alert('Hello');
-    today = new Date()
-    dayis = String(today.getDate())
-    if (dayis < 10) {
-        monthis = "0" + dayis
+    else{
+        timeformat = "AM"
     }
 
-    monthis = String(today.getMonth() + 1)
-    if (monthis < 10) {
-        monthis = "0" + monthis
+    currentminute = clockTime.getMinutes()
+    if (currentminute < 10){
+        currentminute = "0"+currentminute
     }
+    document.getElementById("time").innerHTML = `${currenthour}:${currentminute} ${timeformat}`
+}
 
-    yearis = String(today.getFullYear())
+clockFunction()
 
-    fullDate = `${monthis}/${dayis}/${yearis}`
-    $('#startDate').val(fullDate)
-})
+const clock = setInterval(() => {
+    clockFunction()
+}, 1000);
