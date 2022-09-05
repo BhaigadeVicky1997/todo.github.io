@@ -1,6 +1,34 @@
 /* reminder data css */
 .reminders {
     padding: 4rem 0;
+    position: relative;
+
+    @media (max-width: 567px) {
+        .mob_60 {
+            width: 60%;
+        }
+
+        .mob_40 {
+            width: 40%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .mob_60 {
+            width: 100%;
+            text-align: left !important;
+        }
+
+        .mob_40 {
+            width: 100%;
+            text-align: left !important;
+        }
+
+        a#expiredBtn {
+            margin-bottom: 1.8rem;
+            margin-top: -13px;
+        }
+    }
 }
 
 // reminder box css
@@ -21,7 +49,8 @@
         height: 10px;
         background: red;
         display: none;
-        &.enable{
+
+        &.enable {
             display: inline-block;
         }
     }

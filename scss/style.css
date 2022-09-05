@@ -210,6 +210,29 @@ header .navbar-brand {
 /* reminder data css */
 .reminders {
   padding: 4rem 0;
+  position: relative;
+}
+@media (max-width: 567px) {
+  .reminders .mob_60 {
+    width: 60%;
+  }
+  .reminders .mob_40 {
+    width: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .reminders .mob_60 {
+    width: 100%;
+    text-align: left !important;
+  }
+  .reminders .mob_40 {
+    width: 100%;
+    text-align: left !important;
+  }
+  .reminders a#expiredBtn {
+    margin-bottom: 1.8rem;
+    margin-top: -13px;
+  }
 }
 
 .reminderBox {
