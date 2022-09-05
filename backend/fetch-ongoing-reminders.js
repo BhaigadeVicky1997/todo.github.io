@@ -1,78 +1,102 @@
-// localStorage.removeItem("reminders")
+$('.btnClearAll').click(function(){
+    localStorage.removeItem("reminders");
+    window.location.reload();
+})
+
+function simpleNotFound(message){
+    return `<div class="col-lg-12 col-md-12 col-sm-12" id="jumboMessage">
+    <div class="jumbotron text-center" style="max-width: 400px;margin: 0 auto;">${message}</div>
+</div>`
+}
+
+function simpleNotFoundButton(message,btnText,url){
+    return `<div class="col-lg-12 col-md-12 col-sm-12" id="jumboMessage">
+    <div class="jumbotron text-center" style="max-width: 400px;margin: 0 auto;">${message}</div>
+    <div class="text-center mt-4"><a href="${url}" class="btn btn-danger">${btnText}</a></div>
+</div>`
+}
+
+// expired reminders
+const expiredynamicReminders = (remName,indexPos) => {
+    document.getElementById('remidersList').innerHTML += `<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+    <div class="reminderBox">
+        <strong>${remName}</strong>
+        <span class="expireSoon enable"></span>
+        <span class="actions">
+            <button type="button" class="btn btn-link p-0" onclick="editRem(${indexPos})"><i class="fa fa-pencil"></i></button>
+            <button type="button" class="btn btn-link p-0" onclick="deleteRem(${indexPos})"><i class="fa fa-trash"></i></button>
+        </span>
+        <button type="button" class="btn btn-info mt-3" onclick="viewRem(${indexPos})">View</button>
+    </div>
+</div>`
+}
+
+// normal reminders
+
+const dynamicReminders = (remName,indexPos) => {
+    document.getElementById('remidersList').innerHTML += `<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+    <div class="reminderBox">
+        <strong>${remName}</strong>
+        <span class="expireSoon"></span>
+        <span class="actions">
+            <button type="button" class="btn btn-link p-0" onclick="editRem(${indexPos})"><i class="fa fa-pencil"></i></button>
+            <button type="button" class="btn btn-link p-0" onclick="deleteRem(${indexPos})"><i class="fa fa-trash"></i></button>
+        </span>
+        <button type="button" class="btn btn-info mt-3" onclick="viewRem(${indexPos})">View</button>
+    </div>
+</div>`
+}
+
+
 // Fetch
 if (localStorage.length != 0) {
     let data = JSON.parse(localStorage.getItem('reminders'))
-    // console.log(data.length)
-    if (data.length != 0) {
-        for (i in data) {
+    console.log(`records found ${data.length}`)
+    if (data.length != 0){
+        for (i in data){
             current_reminder = data[i]
-            today_date = new Date()
+            console.log(current_reminder)
+            
+
+            // remaining days calculate
             ending_date = new Date(current_reminder.endDate)
-            // reminder_out = new Date()
+            today_date = new Date()
             timediffernce = ending_date.getTime() - today_date.getTime();
-            // console.log(timediffernce)
             let remainingDays = Math.ceil(timediffernce / (1000 * 3600 * 24));
-            // console.log(remainingDays < 0)
+            console.log(`Remaining days in expire :- ${remainingDays}`)
 
-            if ($('#remidersList').children().length == 0) {
-                $('#expiredBtn').hide();
-                $('#remidersList').html(
-                    `<div class="col-lg-12 col-md-12 col-sm-12" id="expiredRemindersMessage">
-                                <div class="jumbotron text-center" style="max-width: 400px;margin: 0 auto;">All reminder expired</div>
-                                <div class="text-center mt-5"><a href="expired.html" class="btn btn-danger">View Expired</a></div>
-                            </div>`
-                )
-            }
-            else {
-                if (remainingDays >= 0) {
+            if (remainingDays > 0){
+                if (remainingDays <= 5){
+                    $("#jumboMessage").remove();
                     $('#expiredBtn').show();
-                    $('#expiredRemindersMessage').remove();
-                    if (remainingDays <= 5) {
-                        document.getElementById('remidersList').innerHTML +=
-                            `<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                <div class="reminderBox">
-                                    <strong>${current_reminder.name}</strong>
-                                    <span class="expireSoon enable"></span>
-                                    <span class="actions">
-                                        <button type="button" class="btn btn-link p-0" onclick="editRem(${i})"><i class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-link p-0" onclick="deleteRem(${i})"><i class="fa fa-trash"></i></button>
-                                    </span>
-                                    <button type="button" class="btn btn-info mt-3" onclick="viewRem(${i})">View</button>
-                                </div>
-                            </div>`
-                    }
-                    else {
-                        document.getElementById('remidersList').innerHTML +=
-                            `<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                                <div class="reminderBox">
-                                    <strong>${current_reminder.name}</strong>
-                                    <span class="expireSoon"></span>
-                                    <span class="actions">
-                                        <button type="button" class="btn btn-link p-0" onclick="editRem(${i})"><i class="fa fa-pencil"></i></button>
-                                        <button type="button" class="btn btn-link p-0" onclick="deleteRem(${i})"><i class="fa fa-trash"></i></button>
-                                    </span>
-                                    <button type="button" class="btn btn-info mt-3" onclick="viewRem(${i})">View</button>
-                                </div>
-                            </div>`
-                    }
-
+                    expiredynamicReminders(current_reminder.name,i);           
+                }
+                else{
+                    $("#jumboMessage").remove();
+                    $('#expiredBtn').show();
+                    dynamicReminders(current_reminder.name,i);
                 }
             }
-        }
+            else{
+                $('#expiredBtn').hide();
+                $('#remidersList').html(
+                    simpleNotFoundButton("Reminders expired now","View Expired","expired.html")
+                );
+            }
 
+            console.log('---------------------------------------------------------------')
+        }
     }
-    else {
+    else{
+        $('#expiredBtn').hide();
         $('#remidersList').html(
-            `<div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="jumbotron text-center" style="max-width: 400px;margin: 0 auto;">Reminders Not Create Yet</div>
-                    </div>`
-        )
+            simpleNotFoundButton("All Reminders Deleted","View Expired","expired.html")
+        );
     }
 }
 else {
+    $("#expiredBtn").hide();
     $('#remidersList').html(
-        `<div class="col-lg-12 col-md-12 col-sm-12">
-                    <div class="jumbotron text-center" style="max-width: 400px;margin: 0 auto;">Reminders Not Create Yet</div>
-                </div>`
-    )
+        simpleNotFound("Reminders Not Create Yet")
+    );
 }

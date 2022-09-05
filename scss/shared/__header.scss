@@ -6,6 +6,12 @@ header {
     left: 0;
     width: 100%;
 
+    @media (max-width: 768px){
+    .btnClearAll {
+        display: none;
+    }
+    }
+
     @media (max-width: 575px) {
         .text-center {
             text-align: left !important;
