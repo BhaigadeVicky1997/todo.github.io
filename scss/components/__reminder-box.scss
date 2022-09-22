@@ -28,6 +28,19 @@
             margin-bottom: 1.8rem;
             margin-top: -13px;
         }
+
+        .remind_heading {
+            .page-title {
+                text-align: center;
+            }
+
+            #expiredBtn {
+                display: block;
+                max-width: 104px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
     }
 }
 
@@ -45,13 +58,42 @@
         position: absolute;
         top: -1px;
         left: -1px;
-        width: 10px;
-        height: 10px;
+        width: 4px;
+        height: calc(100% + 1px);
         background: red;
         display: none;
 
         &.enable {
             display: inline-block;
+        }
+    }
+
+
+    .expiredIn {
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        background: #000;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem 0.5rem 1.6rem;
+        border-radius: 4px;
+        transform: translateX(calc(0% + 2rem)) translateY(-50%);
+        white-space: nowrap;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s ease-in;
+
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 14px solid;
+            border-color: #000 transparent;
+            left: -14px;
         }
     }
 
@@ -78,6 +120,33 @@
 
             &:hover {
                 color: #000;
+            }
+        }
+    }
+
+    &:hover {
+        .expiredIn {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .expiredIn {
+            left: 50%;
+            top: calc(100% + 0rem);
+            transform: translateX(-50%);
+            white-space: nowrap;
+            padding: 1rem 1rem 0.9rem 1rem;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: -14px;
+                transform: translateX(-50%);
+                border: 14px solid;
+                border-color: transparent #000;
+                left: 50%;
             }
         }
     }
