@@ -15,7 +15,14 @@ function clockFunction(){
     if (currentminute < 10){
         currentminute = "0"+currentminute
     }
-    document.getElementById("time").innerHTML = `${currenthour}:${currentminute} ${timeformat}`
+
+    currentseconds = clockTime.getSeconds()
+    if (currentseconds < 10){
+        currentseconds = "0"+currentseconds
+    }
+
+
+    document.getElementById("time").innerHTML = `${currenthour}:${currentminute}<span>:<font color="yellow">${currentseconds}</font></span> ${timeformat}`
 }
 
 clockFunction()

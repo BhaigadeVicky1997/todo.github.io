@@ -34,6 +34,14 @@ header {
         }
     }
 
+    @media (max-width: 500px){
+        #time{
+            span{
+                display: none;
+            }
+        }
+    }
+
     @media (max-width: 420px) {
         .time {
             font-size: 2rem !important;
