@@ -34,7 +34,7 @@ const expiredynamicReminders = (remName,indexPos,expireIn) => {
 
 // normal reminders
 
-const dynamicReminders = (remName,indexPos) => {
+const dynamicReminders = (remName,indexPos,remainingDays) => {
     document.getElementById('remidersList').innerHTML += `<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
     <div class="reminderBox">
         <strong>${remName}</strong>
@@ -82,7 +82,7 @@ if (localStorage.length != 0) {
                 else{
                     $("#jumboMessage").remove();
                     $('#expiredBtn').show();
-                    dynamicReminders(current_reminder.name,i);
+                    dynamicReminders(current_reminder.name,i,remainingDays);
                 }
             }
 
