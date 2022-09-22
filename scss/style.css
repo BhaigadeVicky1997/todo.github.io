@@ -24,7 +24,7 @@ header {
   header .btnClearAll {
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 1.5rem;
     transform: translateY(calc(-100% - 0.2rem));
   }
 }
@@ -304,6 +304,7 @@ header .navbar-brand {
   border-radius: 4px;
   transform: translateX(calc(0% + 2rem)) translateY(-50%);
   white-space: nowrap;
+  z-index: 1;
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s ease-in;
