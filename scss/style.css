@@ -87,6 +87,9 @@ header .navbar-brand {
   border-radius: 50%;
   font-size: 1.8rem;
 }
+#addbutton:hover {
+  color: yellow !important;
+}
 
 .field_sidebar {
   position: fixed;
