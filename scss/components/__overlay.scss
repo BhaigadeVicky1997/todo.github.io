@@ -6,6 +6,7 @@
     width: 0;
     height: 0;
     background: rgba(0,0,0,0.6);
+    z-index: 2;
     /* transition: all 50ms ease-in; */
     transform: translateX(-50%) translateY(-50%);
     &.show_overlay {
