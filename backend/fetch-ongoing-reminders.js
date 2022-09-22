@@ -38,7 +38,7 @@ const dynamicReminders = (remName,indexPos,remainingDays) => {
     document.getElementById('remidersList').innerHTML += `<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
     <div class="reminderBox">
         <strong>${remName}</strong>
-        <label class="expiredIn">Expired in ${expireIn} days</label>
+        <label class="expiredIn">Expired in ${remainingDays} days</label>
         <span class="actions">
             <button type="button" class="btn btn-link p-0" onclick="editRem(${indexPos})"><i class="fa fa-pencil"></i></button>
             <button type="button" class="btn btn-link p-0" onclick="deleteRem(${indexPos})"><i class="fa fa-trash"></i></button>
