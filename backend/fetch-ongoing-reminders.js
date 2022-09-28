@@ -27,7 +27,7 @@ const expiredynamicReminders = (remName,indexPos,expireIn) => {
             <button type="button" class="btn btn-link p-0" onclick="editRem(${indexPos})"><i class="fa fa-pencil"></i></button>
             <button type="button" class="btn btn-link p-0" onclick="deleteRem(${indexPos})"><i class="fa fa-trash"></i></button>
         </span>
-        <button type="button" class="btn btn-info mt-3" onclick="viewRem(${indexPos})">View</button>
+        <button type="button" class="btn btn-info btn-view mt-3" onclick="viewRem(${indexPos})">View</button>
     </div>
 </div>`
 }
@@ -43,7 +43,7 @@ const dynamicReminders = (remName,indexPos,remainingDays) => {
             <button type="button" class="btn btn-link p-0" onclick="editRem(${indexPos})"><i class="fa fa-pencil"></i></button>
             <button type="button" class="btn btn-link p-0" onclick="deleteRem(${indexPos})"><i class="fa fa-trash"></i></button>
         </span>
-        <button type="button" class="btn btn-info mt-3" onclick="viewRem(${indexPos})">View</button>
+        <button type="button" class="btn btn-info btn-view mt-3" onclick="viewRem(${indexPos})">View</button>
     </div>
 </div>`
 }
