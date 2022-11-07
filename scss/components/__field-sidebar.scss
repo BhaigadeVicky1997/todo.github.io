@@ -1,10 +1,10 @@
 .field_sidebar {
     position: fixed;
-    top: 6rem;
+    top: 0;
     right: 0;
     width: 400px;
     background: #fff;
-    height: calc(100vh - 5.3rem);
+    height: 100vh;
     border: 0.1rem solid #ccc;
     padding: 1.7rem 3rem;
     transform: translateX(100%);
