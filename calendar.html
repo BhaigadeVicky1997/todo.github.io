@@ -21,13 +21,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="scss/style.css">
-
-    <style>
-        .calendar_page{
-            padding-top: 0.8rem;height: calc(100vh - 53px);
-        }
-    </style>
-
 </head>
 
 <body style="height: 100vh;overflow: hidden;">
@@ -51,26 +44,20 @@
     <!-- reminders -->
     <main class="calendar_page">
         <div class="container-fluid  p-0 m-0">
-            <div class="row m-0">
+            <div class="row m-0 calendar_header">
                 <div class="col-lg-4 col-md-4 col-sm-3">
-                    <button type="button" href=""><i class="fa fa-chevron-left"></i></button>
+                    <button type="button" class="btn-prev"><i class="fa fa-chevron-left"></i></button>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-6 text-center">
-                    <span>November, 2023</span>
+                    <p class="m-0"><span id="month"></span>, <span id="year"></span></p>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-3 text-right">
-                    <button type="button" href=""><i class="fa fa-chevron-right"></i></button>
+                    <button type="button" class="btn-next"><i class="fa fa-chevron-right"></i></button>
                 </div>
             </div>
-            <ul class="m-0 p-0 list-inline calendar_dates" id="calendar">
-                <li id="weekDay_1"></li>
-                <li id="weekDay_2"></li>
-                <li id="weekDay_3"></li>
-                <li id="weekDay_4"></li>
-                <li id="weekDay_5"></li>
-                <li id="weekDay_6"></li>
-                <li id="weekDay_7"></li>
-            </ul>
+            <div>
+                <ul class="list-inline row m-0" id="calendar"></ul>
+            </div>
         </div>
     </main>
 
@@ -87,38 +74,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.1/js/bootstrap-datepicker.js"></script>
     <script src="assets/custom.js"></script>
     <script src="assets/clock.js"></script>
-    <script>
-        function getAllDaysInMonth(year, month) {
-        const date = new Date(year, month, 1);
-
-        const dates = [];
-
-        while (date.getMonth() === month) {
-            dates.push(new Date(date));
-            date.setDate(date.getDate() + 1);
-        }
-
-        return dates;
-        }
-
-        const now = new Date();
-
-        // 👇️ all days of the current month
-        for (i in getAllDaysInMonth(now.getFullYear(), now.getMonth())){
-            let today = now.getDate();
-            let curDate = Number(i)+1;
-            let currWeek = i
-
-            if (today == curDate){
-                const node = `<li class="m-0 d_item today"><button class="btn btn-link btn_date">${curDate}</button></li>`
-                document.getElementById('calendar').innerHTML += node;
-            }
-            else{
-                const node = `<li class="m-0 d_item"><button class="btn btn-link btn_date">${curDate}</button></li>`
-                document.getElementById('calendar').innerHTML += node;
-            }
-        }
-    </script>
+    <script src="assets/calendar.js"></script>
 </body>
 
 </html>

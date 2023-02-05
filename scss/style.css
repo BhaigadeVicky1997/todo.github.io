@@ -438,4 +438,69 @@ header .navbar-brand {
 }
 .viewDetail.show_detail {
   transform: translateY(0%);
+}
+
+.calendar_page {
+  padding-top: 0.8rem;
+  height: calc(100vh - 53px - 3rem - 2rem);
+  width: calc(100% - 100px);
+  margin: 3rem auto;
+  border: 1px solid #ccc;
+}
+.calendar_page .calendar_header {
+  padding-bottom: 10px;
+}
+.calendar_page .calendar_header button {
+  background: #6974d6;
+  border: 0;
+  width: 23px;
+  height: 23px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 50%;
+}
+.calendar_page ul#calendar li {
+  border-top: 1px solid #ccc;
+  margin: 0;
+}
+.calendar_page ul#calendar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.calendar_page ul#calendar li {
+  line-height: 84px;
+  width: 14.27%;
+}
+.calendar_page ul#calendar li.week_names {
+  color: red;
+  border-bottom: 1px dashed #ccc;
+}
+.calendar_page ul#calendar li:nth-child(8), .calendar_page ul#calendar li:nth-child(9), .calendar_page ul#calendar li:nth-child(10), .calendar_page ul#calendar li:nth-child(11), .calendar_page ul#calendar li:nth-child(12), .calendar_page ul#calendar li:nth-child(13), .calendar_page ul#calendar li:nth-child(14) {
+  border-top: 0;
+}
+.calendar_page ul#calendar li .btn-link {
+  color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-decoration: none !important;
+}
+.calendar_page ul#calendar li .btn-link:hover {
+  background-color: #efefef;
+  color: #000;
+  border: 1px solid #ccc;
+}
+.calendar_page ul#calendar li.today .btn-link {
+  color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-decoration: none !important;
+  background-color: #6974d6 !important;
+  color: #fff !important;
+}
+.calendar_page ul#calendar li.next-month-dates {
+  color: #e7e7e7;
+  cursor: no-drop;
 }/*# sourceMappingURL=style.css.map */
