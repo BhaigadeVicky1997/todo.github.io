@@ -1,0 +1,153 @@
+/* reminder data css */
+.reminders {
+    padding: 4rem 0;
+    position: relative;
+
+    @media (max-width: 567px) {
+        .mob_60 {
+            width: 60%;
+        }
+
+        .mob_40 {
+            width: 40%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .mob_60 {
+            width: 100%;
+            text-align: left !important;
+        }
+
+        .mob_40 {
+            width: 100%;
+            text-align: left !important;
+        }
+
+        a#expiredBtn {
+            margin-bottom: 1.8rem;
+            margin-top: -13px;
+        }
+
+        .remind_heading {
+            .page-title {
+                text-align: center;
+            }
+
+            #expiredBtn {
+                display: block;
+                max-width: 104px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+}
+
+// reminder box css
+.reminderBox {
+    background: #dfe2ff;
+    border: 0.1rem solid #ccc;
+    padding: 2rem 3rem;
+    border-radius: 0.4rem;
+    position: relative;
+    height: 100%;
+
+
+    .expireSoon {
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: 4px;
+        height: calc(100% + 1px);
+        background: red;
+        display: none;
+
+        &.enable {
+            display: inline-block;
+        }
+    }
+
+
+    .expiredIn {
+        position: absolute;
+        left: 100%;
+        top: 50%;
+        background: #000;
+        color: #fff;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem 0.5rem 1.6rem;
+        border-radius: 4px;
+        transform: translateX(calc(0% + 2rem)) translateY(-50%);
+        white-space: nowrap;
+        z-index: 1;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.5s ease-in;
+
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 14px solid;
+            border-color: #000 transparent;
+            left: -14px;
+        }
+    }
+
+    strong {
+        color: #a413b9;
+        display: block;
+        margin-bottom: 1rem;
+        padding-right: 3.5rem;
+    }
+
+    /* actions */
+    .actions {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+
+        .btn {
+            color: #8a7e7e;
+            margin-left: 0.7rem;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+
+    &:hover {
+        .expiredIn {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .expiredIn {
+            left: 50%;
+            top: calc(100% + 0rem);
+            transform: translateX(-50%);
+            white-space: nowrap;
+            padding: 1rem 1rem 0.9rem 1rem;
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: -14px;
+                transform: translateX(-50%);
+                border: 14px solid;
+                border-color: transparent #000;
+                left: 50%;
+            }
+        }
+    }
+}

@@ -1,0 +1,87 @@
+/* view detail css start */
+
+.viewDetail {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #efefef;
+    border-top: 0.1rem solid #ccc;
+    padding: 2rem 0;
+    transform: translateY(130%);
+    transition: all 400ms ease-in;
+    z-index: 3;
+
+    .reminderBox {
+        background: transparent;
+        border: 0;
+
+        p {
+            b {
+                font-size: 7rem;
+
+                @media (max-width: 567px) {
+                    font-size: 5rem;
+                }
+            }
+        }
+
+        .days_text {
+            font-size: 2.8rem;
+        }
+
+
+        #detailBox {
+            @media (max-width: 567px) {
+                text-align: center;
+            }
+
+            &>.row {
+                @media (max-width: 567px) {
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+
+                    .text-right {
+                        text-align: center !important;
+                    }
+                }
+            }
+
+            strong {
+                @media (max-width: 567px) {
+                    padding-right: 0 !important;
+                    text-align: center;
+                }
+            }
+        }
+
+        @media (max-width: 567px){
+            padding: 2rem 1.5rem;
+        }
+    }
+
+    .btn_close {
+        position: absolute;
+        top: -3.5rem;
+        right: -1.5rem;
+        border: 0.1rem solid #ccc;
+        background: #efefef;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
+        color: #000;
+        border-radius: 50%;
+
+        &:hover {
+            :hover {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    }
+
+    &.show_detail {
+        transform: translateY(0%);
+    }
+}

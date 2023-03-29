@@ -1,0 +1,547 @@
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  padding-top: 5.3rem;
+}
+
+header {
+  background-color: #6974d6;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@media (max-width: 575px) {
+  header .text-center {
+    text-align: left !important;
+    margin-top: -3.6rem;
+  }
+  header .btnClearAll {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(calc(-100% - 0.2rem));
+  }
+}
+header .navbar-brand {
+  font-size: 1.8rem;
+}
+@media (max-width: 575px) {
+  header .navbar-brand {
+    position: relative;
+    left: 50%;
+    transform: translateX(calc(-50% + 10px));
+  }
+}
+@media (max-width: 420px) {
+  header .navbar-brand {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 500px) {
+  header #time span {
+    display: none;
+  }
+}
+@media (max-width: 420px) {
+  header .time {
+    font-size: 2rem !important;
+    position: relative;
+    top: 0.4rem;
+  }
+}
+@media (max-width: 400px) {
+  header .btnClearAll {
+    display: none;
+  }
+  header span#time {
+    display: none;
+  }
+}
+
+.btn-outline-light:hover {
+  color: #000 !important;
+}
+
+.btn {
+  font-size: 1.4rem;
+}
+
+.btn-primary {
+  background: #6974d6;
+  border-color: #6974d6;
+}
+
+#addbutton {
+  position: absolute;
+  bottom: 3rem;
+  right: 3rem;
+  background: #6c75d9;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  font-size: 1.8rem;
+}
+#addbutton:hover {
+  color: yellow !important;
+}
+
+.toggle {
+  border-color: transparent !important;
+}
+.toggle .btn, .toggle.btn {
+  background: none !important;
+  color: inherit !important;
+}
+.toggle .btn.toggle-off, .toggle.btn.toggle-off {
+  border: 1px solid red;
+  color: red !important;
+}
+.toggle .btn.toggle-on, .toggle.btn.toggle-on {
+  border-color: #6974d6 !important;
+  color: #fff !important;
+  background-color: #6974d6 !important;
+}
+.toggle .toggle-handle {
+  display: none !important;
+}
+
+.field_sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 525px;
+  background: #fff;
+  height: 100vh;
+  border: 0.1rem solid #ccc;
+  padding: 1.7rem 3rem;
+  transform: translateX(100%);
+  transition: transform 400ms ease-in;
+  max-width: 100%;
+  z-index: 3;
+}
+@media (max-width: 567px) {
+  .field_sidebar {
+    top: 4.9rem;
+    height: calc(100vh - 4.9rem);
+  }
+}
+.field_sidebar label {
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.field_sidebar input, .field_sidebar select {
+  height: 4rem;
+  font-size: 1.4rem;
+}
+.field_sidebar .hide-current {
+  display: none;
+}
+.field_sidebar .toggle {
+  width: 100% !important;
+  height: 100% !important;
+}
+.field_sidebar .toggle label {
+  margin: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.field_sidebar .time_box.time-checked {
+  display: flex !important;
+}
+.field_sidebar .big-date {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-right: 1.5rem !important;
+}
+.field_sidebar .form_footer {
+  position: absolute;
+  border: 0;
+  left: 0;
+  width: 100%;
+  border-top: 0.1rem solid #ccc;
+  padding: 1.5rem 3rem;
+  bottom: 0;
+}
+.field_sidebar .btn_close {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  border: 0.1rem solid #ccc;
+  background: #fff;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  color: #000;
+  border-radius: 50%;
+}
+.field_sidebar .btn_close:hover {
+  background-color: #ccc;
+}
+.field_sidebar .btn-primary {
+  zoom: 1.3;
+}
+.field_sidebar.show_sidebar {
+  transform: translateX(0%);
+}
+.field_sidebar.update_sidebar .btn_submit {
+  display: none;
+}
+.field_sidebar.update_sidebar .btn_update {
+  display: inline-block !important;
+}
+
+.datepicker.datepicker-dropdown {
+  width: 200px;
+}
+.datepicker * {
+  font-size: 1.4rem;
+}
+.datepicker .table-condensed {
+  width: 100%;
+}
+.datepicker .table-condensed th.prev,
+.datepicker .table-condensed th.next {
+  text-align: center;
+  border-radius: 50%;
+  color: #fff;
+  position: relative;
+}
+.datepicker .table-condensed th.prev:after,
+.datepicker .table-condensed th.next:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2rem;
+  height: 2rem;
+  background: #6974d6;
+  content: "";
+  transform: translateX(-50%) translateY(calc(-50% + 0.1rem));
+  border-radius: 50%;
+  z-index: -1;
+}
+.datepicker .table-condensed th.prev {
+  left: 0.8rem;
+}
+.datepicker .table-condensed th.next {
+  left: -0.8rem;
+}
+.datepicker .table-condensed th.dow {
+  background: #6974d6;
+  color: #fff;
+}
+.datepicker .datepicker-switch {
+  text-align: center;
+  padding: 0.5rem 0 0.8rem;
+}
+.datepicker .day {
+  font-size: 1.2rem;
+  text-align: center;
+}
+.datepicker .disabled {
+  opacity: 0.2;
+  cursor: no-drop;
+}
+.datepicker .today,
+.datepicker .active.day {
+  background: #6974d6;
+  border-radius: 0.4rem;
+  color: #fff;
+  padding: 0.4rem;
+}
+.datepicker .today:hover {
+  background-color: #6974d6 !important;
+  opacity: 0.7;
+}
+.datepicker .day:hover {
+  background: #efefef;
+}
+
+/* overlay css */
+.overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  /* transition: all 50ms ease-in; */
+  transform: translateX(-50%) translateY(-50%);
+}
+.overlay.show_overlay {
+  width: 100%;
+  height: 100%;
+}
+
+/* reminder data css */
+.reminders {
+  padding: 4rem 0;
+  position: relative;
+}
+@media (max-width: 567px) {
+  .reminders .mob_60 {
+    width: 60%;
+  }
+  .reminders .mob_40 {
+    width: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .reminders .mob_60 {
+    width: 100%;
+    text-align: left !important;
+  }
+  .reminders .mob_40 {
+    width: 100%;
+    text-align: left !important;
+  }
+  .reminders a#expiredBtn {
+    margin-bottom: 1.8rem;
+    margin-top: -13px;
+  }
+  .reminders .remind_heading .page-title {
+    text-align: center;
+  }
+  .reminders .remind_heading #expiredBtn {
+    display: block;
+    max-width: 104px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.reminderBox {
+  background: #dfe2ff;
+  border: 0.1rem solid #ccc;
+  padding: 2rem 3rem;
+  border-radius: 0.4rem;
+  position: relative;
+  height: 100%;
+  /* actions */
+}
+.reminderBox .expireSoon {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 4px;
+  height: calc(100% + 1px);
+  background: red;
+  display: none;
+}
+.reminderBox .expireSoon.enable {
+  display: inline-block;
+}
+.reminderBox .expiredIn {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  background: #000;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem 0.5rem 1.6rem;
+  border-radius: 4px;
+  transform: translateX(calc(0% + 2rem)) translateY(-50%);
+  white-space: nowrap;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+.reminderBox .expiredIn:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 14px solid;
+  border-color: #000 transparent;
+  left: -14px;
+}
+.reminderBox strong {
+  color: #a413b9;
+  display: block;
+  margin-bottom: 1rem;
+  padding-right: 3.5rem;
+}
+.reminderBox .actions {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+.reminderBox .actions .btn {
+  color: #8a7e7e;
+  margin-left: 0.7rem;
+}
+.reminderBox .actions .btn:first-child {
+  margin-left: 0;
+}
+.reminderBox .actions .btn:hover {
+  color: #000;
+}
+.reminderBox:hover .expiredIn {
+  visibility: visible;
+  opacity: 1;
+}
+@media (max-width: 575px) {
+  .reminderBox .expiredIn {
+    left: 50%;
+    top: calc(100% + 0rem);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    padding: 1rem 1rem 0.9rem 1rem;
+  }
+  .reminderBox .expiredIn:after {
+    content: "";
+    position: absolute;
+    top: -14px;
+    transform: translateX(-50%);
+    border: 14px solid;
+    border-color: transparent #000;
+    left: 50%;
+  }
+}
+
+/* view detail css start */
+.viewDetail {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #efefef;
+  border-top: 0.1rem solid #ccc;
+  padding: 2rem 0;
+  transform: translateY(130%);
+  transition: all 400ms ease-in;
+  z-index: 3;
+}
+.viewDetail .reminderBox {
+  background: transparent;
+  border: 0;
+}
+.viewDetail .reminderBox p b {
+  font-size: 7rem;
+}
+@media (max-width: 567px) {
+  .viewDetail .reminderBox p b {
+    font-size: 5rem;
+  }
+}
+.viewDetail .reminderBox .days_text {
+  font-size: 2.8rem;
+}
+@media (max-width: 567px) {
+  .viewDetail .reminderBox #detailBox {
+    text-align: center;
+  }
+}
+@media (max-width: 567px) {
+  .viewDetail .reminderBox #detailBox > .row {
+    display: block;
+    width: 100%;
+    margin: 0;
+  }
+  .viewDetail .reminderBox #detailBox > .row .text-right {
+    text-align: center !important;
+  }
+}
+@media (max-width: 567px) {
+  .viewDetail .reminderBox #detailBox strong {
+    padding-right: 0 !important;
+    text-align: center;
+  }
+}
+@media (max-width: 567px) {
+  .viewDetail .reminderBox {
+    padding: 2rem 1.5rem;
+  }
+}
+.viewDetail .btn_close {
+  position: absolute;
+  top: -3.5rem;
+  right: -1.5rem;
+  border: 0.1rem solid #ccc;
+  background: #efefef;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  color: #000;
+  border-radius: 50%;
+}
+.viewDetail .btn_close:hover :hover {
+  background-color: #000;
+  color: #fff;
+}
+.viewDetail.show_detail {
+  transform: translateY(0%);
+}
+
+.calendar_page {
+  padding-top: 0.8rem;
+  height: calc(100vh - 53px - 3rem - 2rem);
+  width: calc(100% - 100px);
+  margin: 3rem auto;
+  border: 1px solid #ccc;
+}
+.calendar_page .calendar_header {
+  padding-bottom: 10px;
+}
+.calendar_page .calendar_header button {
+  background: #6974d6;
+  border: 0;
+  width: 23px;
+  height: 23px;
+  font-size: 12px;
+  color: #fff;
+  border-radius: 50%;
+}
+.calendar_page ul#calendar li {
+  border-top: 1px solid #ccc;
+  margin: 0;
+}
+.calendar_page ul#calendar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.calendar_page ul#calendar li {
+  line-height: 84px;
+  width: 14.27%;
+}
+.calendar_page ul#calendar li.week_names {
+  color: red;
+  border-bottom: 1px dashed #ccc;
+}
+.calendar_page ul#calendar li:nth-child(8), .calendar_page ul#calendar li:nth-child(9), .calendar_page ul#calendar li:nth-child(10), .calendar_page ul#calendar li:nth-child(11), .calendar_page ul#calendar li:nth-child(12), .calendar_page ul#calendar li:nth-child(13), .calendar_page ul#calendar li:nth-child(14) {
+  border-top: 0;
+}
+.calendar_page ul#calendar li .btn-link {
+  color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-decoration: none !important;
+}
+.calendar_page ul#calendar li .btn-link:hover {
+  background-color: #efefef;
+  color: #000;
+  border: 1px solid #ccc;
+}
+.calendar_page ul#calendar li.today .btn-link {
+  color: #000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  text-decoration: none !important;
+  background-color: #6974d6 !important;
+  color: #fff !important;
+}
+.calendar_page ul#calendar li.next-month-dates {
+  color: #e7e7e7;
+  cursor: no-drop;
+}/*# sourceMappingURL=style.css.map */

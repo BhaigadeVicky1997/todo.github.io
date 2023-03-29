@@ -1,0 +1,28 @@
+.btn-outline-light{
+    &:hover{
+        color: #000 !important;
+    }
+}
+
+.btn {
+    font-size: 1.4rem;
+}
+
+.btn-primary {
+    background: $primary-color;
+    border-color: $primary-color;
+}
+
+#addbutton {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    background: #6c75d9;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    &:hover{
+        color: yellow !important;
+    }
+}

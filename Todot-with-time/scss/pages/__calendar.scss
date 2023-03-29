@@ -1,0 +1,89 @@
+// calendar css
+// .calendar_dates {
+//     display: flex;
+//     flex-wrap: wrap;
+//     li {
+//         width: 14.28%;
+//         text-align: center;
+//         line-height: 95px;
+//         border: 1px solid #ccc;
+//     }
+// }
+
+.calendar_page {
+    padding-top: 0.8rem;
+    height: calc(100vh - 53px - 3rem - 2rem);
+    width: calc(100% - 100px);
+    margin: 3rem auto;
+    border: 1px solid #ccc;
+    
+    .calendar_header{
+        padding-bottom: 10px;
+        button{
+            background: $primary-color;
+            border: 0;
+            width: 23px;
+            height: 23px;
+            font-size: 12px;
+            color: #fff;
+            border-radius: 50%;
+        }
+    }
+    
+    ul#calendar li {
+        border-top: 1px solid #ccc;
+        margin: 0;
+    }
+
+    ul{
+        &#calendar{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            li{
+                line-height: 84px;
+                width: 14.27%;
+                &.week_names {
+                    color: red;
+                    border-bottom: 1px dashed #ccc;
+                }
+
+                &:nth-child(8),&:nth-child(9),&:nth-child(10),&:nth-child(11),&:nth-child(12),&:nth-child(13),&:nth-child(14){
+                    border-top: 0;
+                }
+                .btn-link {
+                    color: #000;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    text-decoration: none !important;
+                    &:hover{
+                        background-color: #efefef;
+                        color: #000;
+                        border: 1px solid #ccc;
+                    }
+                }
+
+                &.today{
+                    .btn-link {
+                        color: #000;
+                        border-radius: 50%;
+                        width: 40px;
+                        height: 40px;
+                        text-decoration: none !important;
+                        background-color: $primary-color !important;
+                        color: #fff !important;
+                    }
+                }
+
+                &.next-month-dates {
+                    color: #e7e7e7;
+                    cursor: no-drop;
+                }
+
+
+            }
+        }
+    }
+}
+
