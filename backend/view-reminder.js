@@ -1,9 +1,9 @@
 // single section view
 function showReminder(reminder_name, endDate) {
     let date_1 = new Date(endDate);
-    console.log(date_1)
+    //console.log(date_1)
     let date_2 = new Date();
-    console.log(date_2)
+    //console.log(date_2)
 
     let difference = date_1.getTime() - date_2.getTime();
     let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
@@ -49,13 +49,43 @@ function viewRem(index) {
     console.log(current_data)
 
     let rem_name = current_data.name
+
+    let today1 = new Date()
+    let reminder_startDate = new Date(current_data.startDate)
+    const event_time_rem = Math.abs(reminder_startDate - today1);
+    const event_start = Math.ceil(event_time_rem / (1000 * 60 * 60 * 24)); 
+    console.log(event_start + " days");
+
     let reminder_endDate = current_data.endDate
 
-    showReminder(rem_name, reminder_endDate)
-
-    rem_interval = setInterval(() => {
+    if(today1>=reminder_startDate){
         showReminder(rem_name, reminder_endDate)
-    }, 1000)
+
+        rem_interval = setInterval(() => {
+            showReminder(rem_name, reminder_endDate)
+        }, 1000)
+        console.log("yes")
+    }
+    else{
+        $("#detailBox").html(
+            `
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <strong>${rem_name}</strong>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                    <span class="days_text">${event_start} Days Left</span>
+                </div>
+            </div>
+            <p class="mb-0">
+                <b class="timer">
+                    <span>Reminder Not Started Yet</span>
+                </b>
+            </p>
+            `
+        )
+        console.log("No")
+    }
 
     $('.viewDetail').addClass('show_detail')
 }
