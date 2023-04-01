@@ -8,6 +8,34 @@ body {
   padding-top: 5.3rem;
 }
 
+@media (max-width: 319px) {
+  html, body {
+    overflow: hidden;
+  }
+}
+
+.below_device {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  color: #6974d6;
+  z-index: 101;
+  display: none;
+}
+@media (max-width: 319px) {
+  .below_device {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
 header {
   background-color: #6974d6;
   padding: 1rem 0;
@@ -15,6 +43,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 100;
 }
 @media (max-width: 575px) {
   header .text-center {
@@ -43,6 +72,12 @@ header .navbar-brand {
     font-size: 1.5rem;
   }
 }
+@media (max-width: 400px) {
+  header .navbar-brand {
+    left: 0;
+    transform: none;
+  }
+}
 @media (max-width: 500px) {
   header #time span {
     display: none;
@@ -56,9 +91,6 @@ header .navbar-brand {
   }
 }
 @media (max-width: 400px) {
-  header .btnClearAll {
-    display: none;
-  }
   header span#time {
     display: none;
   }
@@ -78,7 +110,7 @@ header .navbar-brand {
 }
 
 #addbutton {
-  position: absolute;
+  position: fixed;
   bottom: 3rem;
   right: 3rem;
   background: #6c75d9;

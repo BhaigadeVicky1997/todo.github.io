@@ -5,6 +5,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
 
     @media (max-width: 575px) {
         .text-center {
@@ -32,6 +33,11 @@ header {
         @media (max-width: 420px) {
             font-size: 1.5rem;
         }
+
+        @media (max-width: 400px){
+            left: 0;
+            transform: none;
+        }
     }
 
     @media (max-width: 500px){
@@ -51,9 +57,6 @@ header {
     }
 
     @media (max-width: 400px){
-        .btnClearAll{
-            display: none;
-        }
         span#time{
             display: none;
         }
