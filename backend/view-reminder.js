@@ -89,6 +89,12 @@ function viewRem(index) {
             )
         }
         else{
+            starting_date_text = current_data.startDate
+            spliting_date = starting_date_text.split("/")
+            const start_day = spliting_date[1]
+            const start_month = spliting_date[0]
+            const start_year = spliting_date[2]
+
             $("#detailBox").html(
                 `
                 <div class="row">
@@ -103,7 +109,7 @@ function viewRem(index) {
                     <b class="timer">
                     <span class="not_start_yet">Reminder Not Started Yet</span>
                     </b>
-                    <span class="d-block">Start on :- <font color="red">${current_data.startDate}</font></span>
+                    <span class="d-block">Start on :- <font color="red">${start_day}/${start_month}/${start_year}</font></span>
                 </p>
                 `
             )
