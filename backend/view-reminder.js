@@ -67,23 +67,48 @@ function viewRem(index) {
         console.log("yes")
     }
     else{
-        $("#detailBox").html(
-            `
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <strong>${rem_name}</strong>
+
+        if(event_start > 1){
+            $("#detailBox").html(
+                `
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <strong>${rem_name}</strong>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                        <span class="days_text">${event_start} Days Left</span>
+                    </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 text-right">
-                    <span class="days_text">${event_start} Days Left</span>
+                <p class="mb-0">
+                    <b class="timer">
+                    <span class="not_start_yet">Reminder Not Started Yet</span>
+                    </b>
+                    <span class="d-block">Start on :- <font color="red">${current_data.startDate}</font></span>
+                </p>
+                `
+            )
+        }
+        else{
+            $("#detailBox").html(
+                `
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <strong>${rem_name}</strong>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                        <span class="days_text">${event_start} Day Left</span>
+                    </div>
                 </div>
-            </div>
-            <p class="mb-0">
-                <b class="timer">
-                    <span>Reminder Not Started Yet</span>
-                </b>
-            </p>
-            `
-        )
+                <p class="mb-0">
+                    <b class="timer">
+                    <span class="not_start_yet">Reminder Not Started Yet</span>
+                    </b>
+                    <span class="d-block">Start on :- <font color="red">${current_data.startDate}</font></span>
+                </p>
+                `
+            )
+        }
+
         console.log("No")
     }
 

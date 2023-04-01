@@ -54,6 +54,19 @@
                     text-align: center;
                 }
             }
+
+            .timer{
+                .not_start_yet{
+                    display: block;
+                    @media (max-width: 991px){
+                        font-size: 3.2rem;
+                    }
+
+                    @media (max-width: 575px){
+                        font-size: 2rem;
+                    }
+                }
+            }
         }
 
         @media (max-width: 567px){

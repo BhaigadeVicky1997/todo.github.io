@@ -447,6 +447,19 @@ header .navbar-brand {
     text-align: center;
   }
 }
+.viewDetail .reminderBox #detailBox .timer .not_start_yet {
+  display: block;
+}
+@media (max-width: 991px) {
+  .viewDetail .reminderBox #detailBox .timer .not_start_yet {
+    font-size: 3.2rem;
+  }
+}
+@media (max-width: 575px) {
+  .viewDetail .reminderBox #detailBox .timer .not_start_yet {
+    font-size: 2rem;
+  }
+}
 @media (max-width: 567px) {
   .viewDetail .reminderBox {
     padding: 2rem 1.5rem;
